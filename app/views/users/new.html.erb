@@ -1,13 +1,13 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Register Form</h1>
 
-<%= form_with(model: user, local: true) do |user| %>
-  <% if user.errors.any? %>
+
+<%= form_with(model: @user, method: :post, local: true) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -15,18 +15,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
@@ -35,7 +35,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Sign Up" %>
+    <%= f.submit "Sign Up" %>
   </div>
 <% end %>
 
